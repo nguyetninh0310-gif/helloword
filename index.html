@@ -246,6 +246,55 @@
     .contact-copy { max-width: 620px; margin: 30px 0; }
     .contact .button { border-color: var(--bg); }
     .contact .button:not(.primary):hover { background: var(--bg); color: var(--text); }
+    .contact-layout { display: grid; gap: 48px; }
+    .contact-details { min-width: 0; }
+    .contact-form { display: grid; gap: 18px; padding-top: 8px; }
+    .form-row { display: grid; gap: 18px; }
+    .field { display: grid; gap: 7px; }
+    .field label { color: rgba(246,242,234,.7); font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .field input, .field textarea, .admin-login input, .status-select {
+      width: 100%;
+      min-height: 49px;
+      padding: 11px 13px;
+      border: 1px solid rgba(246,242,234,.35);
+      border-radius: 0;
+      background: transparent;
+      color: var(--bg);
+      font: inherit;
+    }
+    .field textarea { min-height: 150px; resize: vertical; }
+    .field input::placeholder, .field textarea::placeholder { color: rgba(246,242,234,.45); }
+    .field input:focus, .field textarea:focus { border-color: #c56f7c; outline: 2px solid transparent; }
+    .form-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 15px; }
+    .form-actions .button { cursor: pointer; }
+    .form-message { min-height: 1.7em; margin: 0; color: rgba(246,242,234,.72); font-size: .85rem; }
+    .form-message.success { color: #f0b8c0; }
+    .form-message.error { color: #ffb3b3; }
+    .honeypot { position: absolute !important; width: 1px !important; height: 1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; }
+    .admin-link { color: inherit; }
+
+    .admin-panel { position: fixed; z-index: 100; inset: 0; display: none; overflow-y: auto; padding: 28px 0 60px; background: var(--bg); color: var(--text); }
+    .admin-panel.open { display: block; }
+    .admin-topbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .admin-title { margin: 48px 0 8px; font: 400 clamp(2.8rem, 12vw, 6rem)/.95 var(--serif); letter-spacing: -.05em; }
+    .admin-copy { max-width: 650px; margin: 0 0 34px; color: var(--muted); }
+    .admin-login { display: grid; max-width: 470px; gap: 14px; padding-top: 24px; border-top: 1px solid var(--text); }
+    .admin-login input, .status-select { border-color: var(--line); color: var(--text); }
+    .admin-login .button, .admin-topbar .button, .message-actions .button { cursor: pointer; }
+    .admin-login-message { min-height: 1.7em; margin: 0; color: var(--muted); }
+    .admin-inbox[hidden], .admin-login[hidden] { display: none; }
+    .inbox-meta { display: flex; margin-bottom: 18px; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .message-list { display: grid; gap: 16px; }
+    .message-card { padding: 22px; border: 1px solid var(--line); background: var(--surface); }
+    .message-card-head { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .message-card h3 { margin: 0; font: 400 1.45rem/1.2 var(--serif); }
+    .message-meta { margin: 5px 0 0; color: var(--muted); font-size: .82rem; }
+    .message-subject { margin: 19px 0 5px; font-weight: 800; }
+    .message-body { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .message-actions { display: flex; margin-top: 20px; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .message-actions .button { min-height: 40px; padding: 7px 14px; }
+    .status-select { width: auto; min-height: 40px; padding-block: 6px; }
+    .empty-state { padding: 35px 0; border-top: 1px solid var(--text); color: var(--muted); }
     .footer-line { display: flex; margin-top: 90px; padding-top: 18px; border-top: 1px solid rgba(246,242,234,.22); flex-wrap: wrap; justify-content: space-between; gap: 8px; color: rgba(246,242,234,.62); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; }
 
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity .55s ease, transform .55s ease; }
@@ -271,6 +320,8 @@
       .feature:last-child { padding-right: 0; border-right: 0; }
       .skill-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 45px 7vw; }
       .education-layout { grid-template-columns: 1fr 1fr; gap: 8vw; }
+      .contact-layout { grid-template-columns: minmax(0, .9fr) minmax(360px, 1.1fr); gap: 8vw; align-items: start; }
+      .form-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (min-width: 1200px) {
@@ -394,8 +445,48 @@
   </main>
 
   <footer class="contact" id="contact">
-    <div class="container reveal"><p class="section-kicker"><span>06</span> — Contact</p><h2 class="contact-title">LET’S <em>TALK.</em></h2><p class="contact-copy">Let’s talk about your brand, audience, or next product. Based in Shilin, Taipei City.</p><div class="actions"><a class="button primary" href="mailto:nguyetninh0310@gmail.com">nguyetninh0310@gmail.com</a><a class="button" href="tel:+886979767025">+886 979-767-025</a></div><div class="footer-line"><span>Nguyen Nu Nguyet Ninh</span><span>Marketing · Content · Strategy</span></div></div>
+    <div class="container reveal">
+      <p class="section-kicker"><span>06</span> — Contact</p>
+      <div class="contact-layout">
+        <div class="contact-details">
+          <h2 class="contact-title">LET’S <em>TALK.</em></h2>
+          <p class="contact-copy">Have a role, project, or collaboration in mind? Leave a note and I’ll get back to you. Based in Shilin, Taipei City.</p>
+          <div class="actions"><a class="button primary" href="mailto:nguyetninh0310@gmail.com">nguyetninh0310@gmail.com</a><a class="button" href="tel:+886979767025">+886 979-767-025</a></div>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <div class="form-row">
+            <div class="field"><label for="contact-name">Name *</label><input id="contact-name" name="name" type="text" autocomplete="name" maxlength="100" required placeholder="Your name"></div>
+            <div class="field"><label for="contact-email">Email *</label><input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required placeholder="you@example.com"></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label for="contact-company">Company</label><input id="contact-company" name="company" type="text" autocomplete="organization" maxlength="120" placeholder="Company or team"></div>
+            <div class="field"><label for="contact-subject">Subject</label><input id="contact-subject" name="subject" type="text" maxlength="160" placeholder="What would you like to discuss?"></div>
+          </div>
+          <div class="field"><label for="contact-message">Message *</label><textarea id="contact-message" name="message" minlength="10" maxlength="3000" required placeholder="Tell me a little about the opportunity or project."></textarea></div>
+          <div class="honeypot" aria-hidden="true"><label for="contact-website">Website</label><input id="contact-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+          <div class="form-actions"><button class="button primary" id="contact-submit" type="submit">Send message</button><p class="form-message" id="contact-form-message" role="status" aria-live="polite"></p></div>
+        </form>
+      </div>
+      <div class="footer-line"><span>Nguyen Nu Nguyet Ninh</span><span>Marketing · Content · Strategy · <a class="admin-link" href="#admin">Admin</a></span></div>
+    </div>
   </footer>
+
+  <section class="admin-panel" id="admin-panel" aria-label="Contact inbox" aria-hidden="true">
+    <div class="container">
+      <div class="admin-topbar"><a class="brand" href="#top">Chloe / Contact Inbox</a><a class="button" href="#contact" id="admin-close">Close</a></div>
+      <h2 class="admin-title">CONTACT <em>INBOX.</em></h2>
+      <p class="admin-copy">Private messages submitted through the resume contact form. Sign in with the resume owner account to continue.</p>
+      <form class="admin-login" id="admin-login">
+        <div class="field"><label for="admin-email">Email</label><input id="admin-email" type="email" value="nguyetninh0310@gmail.com" readonly></div>
+        <div class="field"><label for="admin-password">Password</label><input id="admin-password" type="password" autocomplete="current-password" required></div>
+        <div class="form-actions"><button class="button primary" type="submit">Sign in</button><p class="admin-login-message" id="admin-login-message" role="status" aria-live="polite"></p></div>
+      </form>
+      <div class="admin-inbox" id="admin-inbox" hidden>
+        <div class="inbox-meta"><p id="inbox-count">Loading messages…</p><div class="actions"><button class="button" id="inbox-refresh" type="button">Refresh</button><button class="button" id="admin-logout" type="button">Sign out</button></div></div>
+        <div class="message-list" id="message-list"></div>
+      </div>
+    </div>
+  </section>
 
   <script>
     const navShell = document.querySelector('.nav-shell');
@@ -446,6 +537,221 @@
       }, { threshold: .1 });
       revealItems.forEach(item => revealObserver.observe(item));
     }
+
+    const SUPABASE_URL = 'https://tbteyfkaeqresrccikrm.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRidGV5ZmthZXFyZXNyY2Npa3JtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc1MTI0MTYsImV4cCI6MjEwMzA4ODQxNn0.lxqrchxv-9Bdb-SvZZRK7LzBFXVGeQfaTguts8TPAsA';
+    const OWNER_EMAIL = 'nguyetninh0310@gmail.com';
+    const contactForm = document.querySelector('#contact-form');
+    const contactSubmit = document.querySelector('#contact-submit');
+    const contactFormMessage = document.querySelector('#contact-form-message');
+
+    contactForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      contactFormMessage.className = 'form-message';
+      if (contactForm.elements.website.value) return;
+      if (!contactForm.reportValidity()) return;
+
+      const payload = {
+        name: contactForm.elements.name.value.trim(),
+        email: contactForm.elements.email.value.trim(),
+        company: contactForm.elements.company.value.trim() || null,
+        subject: contactForm.elements.subject.value.trim() || null,
+        message: contactForm.elements.message.value.trim()
+      };
+
+      contactSubmit.disabled = true;
+      contactSubmit.textContent = 'Sending…';
+      contactFormMessage.textContent = 'Securely sending your message.';
+      try {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/contact_submissions`, {
+          method: 'POST',
+          headers: {
+            apikey: SUPABASE_ANON_KEY,
+            Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+            Prefer: 'return=minimal'
+          },
+          body: JSON.stringify(payload)
+        });
+        if (!response.ok) throw new Error('Unable to save your message.');
+        contactForm.reset();
+        contactFormMessage.classList.add('success');
+        contactFormMessage.textContent = 'Thank you — your message has been received.';
+      } catch (error) {
+        contactFormMessage.classList.add('error');
+        contactFormMessage.textContent = 'Your message could not be sent. Please email me directly instead.';
+      } finally {
+        contactSubmit.disabled = false;
+        contactSubmit.textContent = 'Send message';
+      }
+    });
+
+    const adminPanel = document.querySelector('#admin-panel');
+    const adminLogin = document.querySelector('#admin-login');
+    const adminLoginMessage = document.querySelector('#admin-login-message');
+    const adminInbox = document.querySelector('#admin-inbox');
+    const inboxCount = document.querySelector('#inbox-count');
+    const messageList = document.querySelector('#message-list');
+    const adminSessionKey = 'chloe_resume_admin_session';
+
+    function getAdminSession() {
+      try { return JSON.parse(sessionStorage.getItem(adminSessionKey)); }
+      catch { return null; }
+    }
+
+    function setAdminOpen(open) {
+      adminPanel.classList.toggle('open', open);
+      adminPanel.setAttribute('aria-hidden', String(!open));
+      document.body.classList.toggle('menu-open', open);
+      if (open) showAdminState();
+    }
+
+    function syncAdminHash() { setAdminOpen(location.hash === '#admin'); }
+    addEventListener('hashchange', syncAdminHash);
+    syncAdminHash();
+
+    async function adminRequest(path, options = {}) {
+      const session = getAdminSession();
+      if (!session?.access_token) throw new Error('Please sign in again.');
+      const response = await fetch(`${SUPABASE_URL}${path}`, {
+        ...options,
+        headers: {
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${session.access_token}`,
+          'Content-Type': 'application/json',
+          ...(options.headers || {})
+        }
+      });
+      if (response.status === 401) {
+        sessionStorage.removeItem(adminSessionKey);
+        throw new Error('Your session expired. Please sign in again.');
+      }
+      if (!response.ok) throw new Error('The inbox request failed.');
+      return response;
+    }
+
+    adminLogin.addEventListener('submit', async event => {
+      event.preventDefault();
+      adminLoginMessage.textContent = 'Signing in…';
+      const submitButton = adminLogin.querySelector('button[type="submit"]');
+      submitButton.disabled = true;
+      try {
+        const response = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`, {
+          method: 'POST',
+          headers: { apikey: SUPABASE_ANON_KEY, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: OWNER_EMAIL, password: document.querySelector('#admin-password').value })
+        });
+        const data = await response.json();
+        if (!response.ok || !data.access_token) throw new Error('Incorrect email or password.');
+        sessionStorage.setItem(adminSessionKey, JSON.stringify({ access_token: data.access_token, expires_at: data.expires_at }));
+        document.querySelector('#admin-password').value = '';
+        adminLoginMessage.textContent = '';
+        await showAdminState();
+      } catch (error) {
+        adminLoginMessage.textContent = error.message;
+      } finally {
+        submitButton.disabled = false;
+      }
+    });
+
+    async function showAdminState() {
+      const signedIn = Boolean(getAdminSession()?.access_token);
+      adminLogin.hidden = signedIn;
+      adminInbox.hidden = !signedIn;
+      if (signedIn) await loadMessages();
+    }
+
+    function createMessageCard(message) {
+      const card = document.createElement('article');
+      card.className = 'message-card';
+      const head = document.createElement('div');
+      head.className = 'message-card-head';
+      const identity = document.createElement('div');
+      const name = document.createElement('h3');
+      name.textContent = message.name;
+      const meta = document.createElement('p');
+      meta.className = 'message-meta';
+      meta.textContent = [message.email, message.company, new Date(message.created_at).toLocaleString()].filter(Boolean).join(' · ');
+      identity.append(name, meta);
+      const status = document.createElement('select');
+      status.className = 'status-select';
+      status.setAttribute('aria-label', `Status for ${message.name}`);
+      ['new', 'read', 'replied'].forEach(value => {
+        const option = document.createElement('option');
+        option.value = value;
+        option.textContent = value[0].toUpperCase() + value.slice(1);
+        option.selected = message.status === value;
+        status.append(option);
+      });
+      status.addEventListener('change', () => updateMessageStatus(message.id, status.value));
+      head.append(identity, status);
+
+      const subject = document.createElement('p');
+      subject.className = 'message-subject';
+      subject.textContent = message.subject || 'Contact request';
+      const body = document.createElement('p');
+      body.className = 'message-body';
+      body.textContent = message.message;
+      const actions = document.createElement('div');
+      actions.className = 'message-actions';
+      const reply = document.createElement('a');
+      reply.className = 'button primary';
+      reply.href = `mailto:${encodeURIComponent(message.email)}?subject=${encodeURIComponent(`Re: ${message.subject || 'Your message'}`)}`;
+      reply.textContent = 'Reply';
+      const remove = document.createElement('button');
+      remove.className = 'button';
+      remove.type = 'button';
+      remove.textContent = 'Delete';
+      remove.addEventListener('click', () => deleteMessage(message.id, message.name));
+      actions.append(reply, remove);
+      card.append(head, subject, body, actions);
+      return card;
+    }
+
+    async function loadMessages() {
+      inboxCount.textContent = 'Loading messages…';
+      messageList.replaceChildren();
+      try {
+        const response = await adminRequest('/rest/v1/contact_submissions?select=id,created_at,name,email,company,subject,message,status&order=created_at.desc');
+        const messages = await response.json();
+        inboxCount.textContent = `${messages.length} message${messages.length === 1 ? '' : 's'}`;
+        if (!messages.length) {
+          const empty = document.createElement('p');
+          empty.className = 'empty-state';
+          empty.textContent = 'No contact messages yet.';
+          messageList.append(empty);
+          return;
+        }
+        messages.forEach(message => messageList.append(createMessageCard(message)));
+      } catch (error) {
+        inboxCount.textContent = error.message;
+        if (!getAdminSession()) showAdminState();
+      }
+    }
+
+    async function updateMessageStatus(id, status) {
+      try {
+        await adminRequest(`/rest/v1/contact_submissions?id=eq.${id}`, {
+          method: 'PATCH',
+          headers: { Prefer: 'return=minimal' },
+          body: JSON.stringify({ status })
+        });
+      } catch (error) { inboxCount.textContent = error.message; }
+    }
+
+    async function deleteMessage(id, name) {
+      if (!confirm(`Delete the message from ${name}?`)) return;
+      try {
+        await adminRequest(`/rest/v1/contact_submissions?id=eq.${id}`, { method: 'DELETE' });
+        await loadMessages();
+      } catch (error) { inboxCount.textContent = error.message; }
+    }
+
+    document.querySelector('#inbox-refresh').addEventListener('click', loadMessages);
+    document.querySelector('#admin-logout').addEventListener('click', () => {
+      sessionStorage.removeItem(adminSessionKey);
+      showAdminState();
+    });
   </script>
 </body>
 </html>
